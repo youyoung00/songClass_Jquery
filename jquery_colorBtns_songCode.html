@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>jquery</title>
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+
+        <style></style>
+    </head>
+    <body>
+
+        <p id="text"></p>
+
+        <button>red</button>
+        <button>blue</button>
+        <button>green</button>
+
+    </body>
+    <script>
+
+        $("button").css("display", "none");
+        var text = '';
+        function firstask() {
+
+            text = prompt("값을 입력해 주세요.");
+            if (text == '') {
+                alert('값을 입력해 주세요.');
+                firstask();
+            } else {
+                $("#text").text(text);
+                $("button").css("display", "");
+            }
+
+        }
+
+        $(function () {
+            firstask();
+
+            $("button").on("click", function () {
+                let color = $(this).html();
+                alert(color + "로 변경됩니다.");
+                $("#text").css("color", color);
+            })
+
+        });
+    </script>
+</html>

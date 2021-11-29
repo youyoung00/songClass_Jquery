@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>JQUERY</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+
+        <button id="btn">btn</button>
+        <div id="text">아무것도 없음</div>
+        <button id="btn2">지금 무슨 값이야?</button>
+
+    </body>
+
+    <script>
+
+        $(function(){
+
+          $('#btn').on({
+              click: function(){
+                  $('#text').html("클릭됨");
+              },
+              mouseout: function(){
+                  $('#text').html("마우스 떠남");
+              },
+          });
+
+          $("#btn").on('mouseover',function(){
+              $("#text").html("마우스 올라감");
+          });
+
+          $("#btn2").on('click',function(){
+              alert($("#text").html());
+          });
+
+        });
+
+    </script>
+</html>

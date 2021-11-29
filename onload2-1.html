@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>JQUERY</title>
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+    </head>
+    <body>
+
+        <button id="btn">btn</button>
+
+    </body>
+
+    <script>
+
+        $(function () {
+
+            $("#btn").on({
+
+                'click': function () {
+                    alert("클릭됨");
+                },
+
+                'mouseout': function () {
+                    alert("마우스떠남");
+                }
+            });
+
+            $("#btn").on({
+
+                'click': function () {
+                    alert("클릭됨");
+                },
+
+                'mouseout': function () {
+                    alert("마우스떠남");
+                }
+            });
+
+        });
+    </script>
+</html>

@@ -1,0 +1,100 @@
+<html>
+    <head>
+        <title>JQUERY</title>
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+
+        <style>
+
+        body{
+            text-align: center;
+        }
+
+        div {
+            display: inline-block;
+            text-align: left;
+            width: 380px;
+            height: 45px;
+            line-height: 45px;
+            background-color: white;
+            position: relative;
+            left: 10px;
+        }
+
+        .main{
+            width: 400px;
+            min-width: 440px;
+            margin-left: 35px;
+        }
+
+        .top {
+            width: 400px;
+            height: 60px;
+            line-height: 60px;
+            text-indent: 10px;
+            background-color: blue;
+            color: white;
+            padding-bottom: 10px;
+           
+        }
+        .body {
+            width: 400px;
+            min-height: 440px;
+            background-color: cadetblue;
+        }
+
+        /* #list {
+            width: 380px;
+            height: 45px;
+            line-height: 45px;
+            background-color: white;
+            position: relative;
+            left: 10px;
+            
+        } */
+        #newsList{
+            display: inline-block;
+            text-indent: 10px;
+            text-align: left;
+            width: 380px;
+            height: 45px;
+            line-height: 45px;
+            position: relative;
+            margin-top: 10px;
+            left: 10px;
+            
+        }
+        
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <div class="top">기사등록하기</div>
+            <div class="body" id="newsbody">
+                <p id="newsList">기사리스트</p>
+            </div>
+            <br>
+            <br>
+            <button id="upload">등록하기</button>
+            <button id="del">삭제하기</button>
+        </div>
+    </body>
+
+    <script>
+
+        $(function(){
+            $("#upload").on('click',function(){
+                let name = prompt("작성자 명을 등록하세요");
+                let news = prompt("기사를 등록하세요");
+                $('#newsbody').append(`<div class="list">`+ name +` `+ news +`</div><br><br>`);
+            })
+            $('#del').on('click',function(){
+                $('.list').html('', '');
+                $('.list').css('background-color', 'cadetblue');
+            })
+        })
+
+    </script>
+</html>

@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>JQUERY</title>
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+
+        <style>
+            div {
+                border: 1px solid white;
+                display: inline-block;
+            }
+        </style>
+    </head>
+    <body>
+
+        <button id="append">append</button>
+        <button id="prepend">prepend</button>
+        <br>
+        <br>
+        <br>
+
+        <div id="text">아무것도 없음</div>
+
+        <script>
+
+            $(function () {
+
+                var sorce1 = "<div>append</div>";
+                var sorce2 = "<div>prepend</div>";
+                var count = 0;
+
+                $("#append").on("click", function () {
+                    count++;
+                    sorce1 = "<div> append" + count + "</div>";
+                    $('#text').append(sorce1);
+                })
+
+                $("#prepend").on("click", function () {
+                    count++;
+                    sorce2 = "<div> append" + count + "</div>";
+                    $('#text').prepend(sorce2);
+                })
+
+
+
+                $("#appendTo").on("click", function () {
+                    count++;
+                    sorce1 = "<div> append" + count + "</div>";
+                    $(sorce1).append('#text');
+                })
+
+                $("#prependTo").on("click", function () {
+                    count++;
+                    sorce2 = "<div> append" + count + "</div>";
+                    $(sorce2).prepend('#text');
+                })
+            });
+        </script>
+    </html>

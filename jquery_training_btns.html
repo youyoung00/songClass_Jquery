@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <title>JQUERY</title>
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+
+        <style>
+
+            .main{
+                display: inline-block;
+                height: 100%;
+                width: 100%;
+            }
+
+            .sub{
+                display: block;
+                float: left;
+                width: 200px;
+                height: 50px;
+                cursor: pointer;
+                line-height: 50px;
+                text-indent: 10px;
+            }
+
+            .btn {
+                display: inline-block;
+                border-radius: 10px;
+                border: solid;
+                background-color: gray;
+                color: white;
+                font-size: 30px;
+                width: 200px;
+                height: 100px;
+            }
+
+
+            .btn2 {
+                display: inline-block;
+                border-radius: 10px;
+                border: solid;
+                background-color: white;
+                color: black;
+                font-size: 30px;
+                width: 200px;
+                height: 100px;
+            }
+
+        </style>
+    </head>
+    <body>
+
+            <div class="main">
+                <button id="html" class="sub btn" type="button">html</button>
+                <button id="css" class="sub btn" type="button">css</button>
+                <button id="js"class="sub btn" type="button">js</button>
+            </div>
+
+    </body>
+
+    <script>
+
+
+        $(function(){
+
+            $(".sub").on('click',function(){
+                $(".sub").attr("class","sub btn");
+                $(this).attr("class","sub btn2");
+            })          
+        });
+
+    </script>
+</html>

@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>JQUERY</title>
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+
+        <style>
+
+        </style>
+    </head>
+    <body>
+
+        <button id="change">값 변경</button>
+        <button id="nowval">현재 값</button>
+
+        <input type="text" id="id" value="">
+    </body>
+        <script>
+
+            $(function () {
+
+              $("#change").on("click",function(){
+                  let text = prompt("변경할 값을 입력해주세요");
+                  $("#id").attr("value",text);
+              });
+
+              $("#nowval").on("click",function(){
+                  let text = $("#id").attr('value');
+                  alert(text);
+                  $("#id").attr("value",text);
+              });
+            });
+        </script>
+    </html>
