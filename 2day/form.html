@@ -1,0 +1,93 @@
+<html>
+    <head>
+        <title>JQUERY</title>
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+
+        <style>
+
+        </style>
+    </head>
+    <body>
+
+        <form id="form">
+            <h1>아이디</h1><input type="email" placeholder="이메일" name="mail" id="mail"><br><br>
+            <h1>비밀번호</h1><input type="password" minlength="5" id="pw" placeholder="5자리 이상"><br><br>
+
+            <h1>성별</h1><input type="radio" name="gender" value="man">
+            남자
+            <input type="radio" name="gender" value="woman">
+            여자
+            <br><br>
+            <h1>직업</h1>
+            <select id="selectId" name="selectName" multiple="multiple" class="clsSelect">
+                <option value="" name="0">선택</option>
+                <option value="1" name="1">개발자</option>
+                <option value="2" name="2">퍼블리셔</option>
+                <option value="3" name="3">마케터</option>
+                <option value="4" name="4">대표</option>
+                <option value="5" name="5">디자이너</option>
+                <option value="6" name="6">기획자</option>
+            </select>
+            <br><br>
+            <h1>취미</h1>
+            <input type="checkbox" name="mycheck" value="1">
+            개발
+            <input type="checkbox" name="mycheck" value="2">
+            낚시
+            <input type="checkbox" name="mycheck" value="3">
+            게임
+            <br><br>
+            <input type="checkbox" name="mycheck" value="4">
+            운동
+            <input type="checkbox" name="mycheck" value="5">
+            독서
+            <input type="checkbox" name="mycheck" value="6">
+            음악감상
+
+            <br><br><br>
+
+            <button id="cancel">취소</button>
+            <button id="join">회원가입</button>
+        </form>
+
+    </body>
+
+    <script>
+        $(document).ready(function () {
+
+            $('#join').click(function () {
+
+                let idCount = $('input[name=mail]').val();
+                let pwCount = $('#pw').val().length;
+                let hobbyCount = $('input:checkbox[name=mycheck]:checked').length;
+                let genderCount = $('input:radio[name=gender]:checked').length;
+                let workCount = $('#selectId option:selected').val();
+                console.log(pwCount);
+
+                if (!idCount) {
+                    alert('아이디를 입력해야 합니다(이메일).');
+                } else if (pwCount < 5) {
+                    alert('비밀번호는 5자리 이상이어야 합니다.');
+                } else if (hobbyCount < 3) {
+                    alert('취미는 3가지 이상 입력해야 합니다.');
+                } else if (hobbyCount < 3) {
+                    alert('취미는 3가지 이상 입력해야 합니다.');
+                } else if (!genderCount) {
+                    alert('성별을 선택해주세요');
+                } else {
+                    alert("회원가입이 완료되었습니다.");
+                }
+
+            })
+
+            $('#cancel').click(function () {
+                $('#form')[0].reset();
+            })
+
+        });
+    </script>
+
+</html>

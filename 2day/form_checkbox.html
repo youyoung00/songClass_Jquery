@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <title>JQUERY</title>
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+
+        <style>
+            table {
+                border: solid 2px;
+                text-align: center;
+                width: 50%;
+                height: 50%;
+            }
+
+            td {
+                border: solid 1px;
+
+            }
+        </style>
+    </head>
+    <body>
+
+        <table >
+            <tr>
+                <td><input type="checkbox" name="checkbox" id="topcheck" class="cd" value="1">확인</td>
+                <td class="checkval">제목</td>
+                <td>글쓴시간</td>
+            </tr>
+            <tr>
+                <td ><input type="checkbox" name="checkbox" value="2"></td>
+                <td class="checkval">111</td>
+                <td>11:11:00</td>
+            </tr>
+            <tr>
+                <td ><input type="checkbox" name="checkbox" value="3"></td>
+                <td class="checkval" >222</td>
+                <td>11:11:00</td>
+            </tr>
+            <tr>
+                <td ><input type="checkbox" name="checkbox" value="4"></td>
+                <td class="checkval">333</td>
+                <td>11:11:00</td>
+            </tr>
+            <tr>
+                <td ><input type="checkbox" name="checkbox" value="5"></td>
+                <td class="checkval">444</td>
+                <td>11:11:00</td>
+            </tr>
+            <tr>
+                <td ><input type="checkbox" name="checkbox" value="6"></td>
+                <td class="checkval">555</td>
+                <td>11:11:00</td>
+            </tr>
+            <td ><input type="checkbox" name="checkbox" value="7"></td>
+            <td class="checkval">666</td>
+            <td>11:11:00</td>
+        </tr>
+    </table>
+
+    <br><br>
+
+    <button>로그</button>
+
+</body>
+
+<script>
+
+    $(document).ready(function () {
+
+        $('#topcheck').click(function () {
+           if($(this).is(':checked', true);
+            console.log(count);
+        })
+        $('#topcheck').click(function () {
+            let count2 = $('input:checkbox[name=checkbox]').prop('checked','');
+            console.log(count2);
+        })
+        $('button').click(function () {
+            let checkvalue = $(".checkval").html();
+            console.log(checkvalue);
+        })
+    });
+</script>
+</html>

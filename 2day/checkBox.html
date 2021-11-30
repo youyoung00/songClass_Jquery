@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <title>JQUERY</title>
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+    </head>
+    <body>
+
+<input type="checkbox" name="mycheck" value="1">테스트1 <br>
+<input type="checkbox" name="mycheck" value="2">테스트2 <br>
+<input type="checkbox" name="mycheck" value="3">테스트3 <br>
+<input type="checkbox" name="mycheck" value="4">테스트4 <br>
+<input type="checkbox" name="mycheck" value="5">테스트5 <br>
+
+<button id="btn1">전체개수</button>
+<button id="btn2">체크된개수</button>
+<button id="btn3">전체체크</button>
+<button id="btn4">전체체크해제</button>
+
+    </body>
+
+    <script>
+        $(document).ready(function(){
+            $('#btn1').click(function(){
+                let count = $('input:checkbox[name=mycheck]').length;
+                alert('전체 갯수는' + count+'개 입니다.');
+            })
+            $('#btn2').click(function(){
+                let count = $('input:checkbox[name=mycheck]:checked').length;
+                alert('체크된 갯수는' + count+'개 입니다.');
+            })
+            $('#btn3').click(function(){
+                let count = $('input:checkbox[name=mycheck]').attr('checked', true);
+                console.log(count);
+            })
+            $('#btn4').click(function(){
+                let count = $('input:checkbox[name=mycheck]').attr('checked', false);
+                console.log(count);
+            })
+        });
+    </script>
+<!-- 
+    <script>
+
+        $(document).ready(function () {
+            $('#btn1').click(function(){
+                let count = $('input:checkbox[name=mycheck]').length;
+                alert('전체개수는' +count + '개입니다')
+            })
+        });
+
+        $(document).ready(function () {
+            $('#btn2').click(function(){
+                let count = $('input:checkbox[name=mychecked]').length;
+                alert('체크된 개수는' + count + '개입니다');
+            })
+        });
+
+        $(document).ready(function () {
+            $('input:checkbox[name="mycheck"]').attr("checked",true);
+        });
+
+        $(document).ready(function () {
+            $('input:checkbox[name="mycheck"]').attr("checked",false);
+        });
+    </script> -->
+</html>

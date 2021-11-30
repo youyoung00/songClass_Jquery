@@ -1,0 +1,108 @@
+<html>
+    <head>
+        <title>jquery</title>
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+
+        <style></style>
+    </head>
+    <body>
+
+        <div>
+            <form>
+
+                아이디 :
+                <input type="text" id="id"/>
+                <br/>
+                비밀번호 :
+                <input type="password" id="pw"/>
+                <br/>
+                성별 :
+                <input type="radio" name="sex" value="f">
+                여자 /
+                <input type="radio" name="sex" value="m">
+                남자
+                <br/>
+                직업 :
+                <select id="job">
+                    <option value=""></option>
+                    <option value="1">개발자</option>
+                    <option value="2">프로그래머</option>
+                    <option value="3">코더</option>
+                </select>
+                <br/>
+                취미 :
+                <input type="checkbox" name="hobby" value="1">
+                서바이벌
+                <br/>
+                <input type="checkbox" name="hobby" value="2">
+                사진
+                <br/>
+                <input type="checkbox" name="hobby" value="3">
+                자동차
+                <br/>
+                <input type="checkbox" name="hobby" value="4">
+                낚시
+                <br/>
+                <input type="checkbox" name="hobby" value="5">
+                도박
+                <br/>
+                <input type="checkbox" name="hobby" value="6">
+                바둑
+                <br/>
+                <input type="checkbox" name="hobby" value="7">
+                오목
+                <br/>
+                <input type="reset" value="취소">
+                <button id="btn">회원가입</button>
+
+            </form>
+        </div>
+
+    </body>
+    <script>
+
+        $(function () {
+
+            $("#btn").click(function () {
+                let hobby = $("input:checkbox[name=hobby]:checked").length;
+                let job = $("#job").val();
+                let sex = $("input:radio[name=sex]:checked").val();
+                let password = $("#pw")
+                    .val()
+                    .length;
+                let id = $("#id")
+                    .val()
+                    .length;
+
+                if (hobby < 3) {
+                    alert("취미는 3개 이상 선택하셔야 합니다.");
+                    return;
+                }
+
+                if (job == '') {
+                    alert("직업을 선택해 주세요.");
+                    return;
+                }
+
+                if (sex != 'f' || sex != 'm') {
+                    alert("성별을 선택해 주세요.");
+                    return;
+                }
+
+                if (password < 5) {
+                    alert("비밀번호를 입력해주세요.");
+                    return;
+                }
+
+                if (id < 5) {
+                    alert("아이디를 입력해주세요.");
+                    return;
+                }
+            })
+
+        });
+    </script>
+</html>
