@@ -73,14 +73,14 @@
                     $(".slave").prop("checked",false);
                 }
  
-                alert($(".slave:checked").length);
+                // alert($(".slave:checked").length);
             });
 
             $("#log").click(function(){
                 $(".slave").each(
                     function(){
                         if($(this).is(":checked")){
-                            console.log($(this).val());
+                            alert($(this).val());
                         }
                     } 
                 )

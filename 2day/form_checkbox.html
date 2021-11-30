@@ -24,36 +24,36 @@
 
         <table >
             <tr>
-                <td><input type="checkbox" name="checkbox" id="topcheck" class="cd" value="1">확인</td>
+                <td><input type="checkbox" name="checkbox" id="topcheck" value="1">확인</td>
                 <td class="checkval">제목</td>
                 <td>글쓴시간</td>
             </tr>
             <tr>
-                <td ><input type="checkbox" name="checkbox" value="2"></td>
+                <td ><input type="checkbox" name="checkbox" value="2" class="ischeck"></td>
                 <td class="checkval">111</td>
                 <td>11:11:00</td>
             </tr>
             <tr>
-                <td ><input type="checkbox" name="checkbox" value="3"></td>
-                <td class="checkval" >222</td>
+                <td ><input type="checkbox" name="checkbox" value="3" class="ischeck"></td>
+                <td class="checkval">222</td>
                 <td>11:11:00</td>
             </tr>
             <tr>
-                <td ><input type="checkbox" name="checkbox" value="4"></td>
+                <td ><input type="checkbox" name="checkbox" value="4" class="ischeck"></td>
                 <td class="checkval">333</td>
                 <td>11:11:00</td>
             </tr>
             <tr>
-                <td ><input type="checkbox" name="checkbox" value="5"></td>
+                <td ><input type="checkbox" name="checkbox" value="5" class="ischeck"></td>
                 <td class="checkval">444</td>
                 <td>11:11:00</td>
             </tr>
             <tr>
-                <td ><input type="checkbox" name="checkbox" value="6"></td>
+                <td ><input type="checkbox" name="checkbox" value="6" class="ischeck"></td>
                 <td class="checkval">555</td>
                 <td>11:11:00</td>
             </tr>
-            <td ><input type="checkbox" name="checkbox" value="7"></td>
+            <td ><input type="checkbox" name="checkbox" value="7" class="ischeck"></td>
             <td class="checkval">666</td>
             <td>11:11:00</td>
         </tr>
@@ -61,7 +61,7 @@
 
     <br><br>
 
-    <button>로그</button>
+    <button id="log">로그</button>
 
 </body>
 
@@ -70,16 +70,19 @@
     $(document).ready(function () {
 
         $('#topcheck').click(function () {
-           if($(this).is(':checked', true);
-            console.log(count);
-        })
-        $('#topcheck').click(function () {
-            let count2 = $('input:checkbox[name=checkbox]').prop('checked','');
-            console.log(count2);
-        })
-        $('button').click(function () {
-            let checkvalue = $(".checkval").html();
-            console.log(checkvalue);
+            if ($(this).is(':checked')) {
+                $(".ischeck").prop("checked", true);
+            } else {
+                $(".ischeck").prop("checked", false);
+            }
+        });
+        $('#log').click(function () {
+            $('.ischeck').each(function () {
+                if ($(this).is(':checked')) {  
+                    console.log($(this).val());
+                }
+            }
+            );
         })
     });
 </script>
