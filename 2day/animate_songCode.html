@@ -1,0 +1,180 @@
+<html>
+    <head>
+        <title>jquery</title>
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+
+        <style>
+            div {
+                position: absolute;
+                border: 1px solid #000;
+                display: inline-block;
+
+            }
+            #head {
+                width: 100px;
+                height: 100px;
+                border-radius: 100px;
+                background-color: blueviolet;
+            }
+            #leftpunch {
+                width: 50px;
+                height: 50px;
+                border-radius: 50px;
+                background-color: red;
+            }
+            #rightpunch {
+                width: 50px;
+                height: 50px;
+                border-radius: 50px;
+                background-color: red;
+            }
+            #body {
+                width: 80px;
+                height: 200px;
+                border-radius: 10px;
+                background-color: blueviolet;
+            }
+            #leftarm {
+                width: 100px;
+                height: 40px;
+                border-radius: 10px;
+                background-color: yellow;
+            }
+            #rightarm {
+                width: 100px;
+                height: 40px;
+                border-radius: 10px;
+                background-color: yellow;
+            }
+            #leftleg {
+                width: 40px;
+                height: 100px;
+                border-radius: 10px;
+                background-color: yellow;
+            }
+            #rightleg {
+                width: 40px;
+                height: 100px;
+                border-radius: 10px;
+                background-color: yellow;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div id="head"></div>
+        <div id="body"></div>
+        <div id="leftarm"></div>
+        <div id="rightarm"></div>
+        <div id="leftleg"></div>
+        <div id="rightleg"></div>
+        <div id="leftpunch"></div>
+        <div id="rightpunch"></div>
+
+        <br/>
+        <br/>
+        <br/>
+
+        <br/>
+        <br/>
+        <br/>
+
+        <br/>
+        <br/>
+        <br/>
+
+        <br/>
+        <br/>
+        <br/>
+
+        <button id="car">자동차로 변신!</button>
+        <button id="robot">로봇으로 변신!</button>
+
+    </body>
+    <script>
+
+        function car() {
+            $("#head").animate({
+                left: "300px",
+                top: "10px"
+            }, 1000);
+            $("#body").animate({
+                left: "310px",
+                top: "100px"
+            }, 1000);
+            $("#leftarm").animate({
+                left: "220px",
+                top: "220px"
+            }, 1000);
+            $("#rightarm").animate({
+                left: "380px",
+                top: "220px"
+            }, 1000);
+            $("#leftleg").animate({
+                left: "270px",
+                top: "220px"
+            }, 1000);
+            $("#rightleg").animate({
+                left: "380px",
+                top: "220px"
+            }, 1000);
+            $("#leftpunch").animate({
+                left: "270px",
+                top: "300px"
+            }, 1000);
+            $("#rightpunch").animate({
+                left: "380px",
+                top: "300px"
+            }, 1000);
+        }
+
+        function robot() {
+            $("#head").animate({
+                left: "300px",
+                top: "10px"
+            }, 1000);
+            $("#body").animate({
+                left: "310px",
+                top: "100px"
+            }, 1000);
+            $("#leftarm").animate({
+                left: "220px",
+                top: "120px"
+            }, 1000);
+            $("#rightarm").animate({
+                left: "380px",
+                top: "120px"
+            }, 1000);
+            $("#leftleg").animate({
+                left: "300px",
+                top: "290px"
+            }, 1000);
+            $("#rightleg").animate({
+                left: "350px",
+                top: "290px"
+            }, 1000);
+            $("#leftpunch").animate({
+                left: "170px",
+                top: "110px"
+            }, 1000);
+            $("#rightpunch").animate({
+                left: "480px",
+                top: "110px"
+            }, 1000);
+        }
+
+        $(function () {
+
+            $("#car").click(function(){
+                car();
+            })
+
+            $("#robot").click(function(){
+                robot();
+            })
+        });
+    </script>
+</html>

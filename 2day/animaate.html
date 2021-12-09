@@ -3,11 +3,13 @@
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <style>
+            
 
             #mom{
+
                 display: block;
                 border-radius: 50px;
-                background: #98bf21;
+                background: red;
                 height:200px;
                 width:100px;
                 position:absolute;
@@ -28,12 +30,12 @@
             #rightPal{
                 display: block;
                 border-radius: 50px;
-                background: #98bf21;
+                background: blue;
                 height:100px;
                 width:100px;
-                position:absolute;
+                /* position:absolute;
                 top: 300px;
-                left: 300px;
+                left: 300px; */
             }
         </style>
     </head>
@@ -49,7 +51,7 @@
     </body>
     <script>
 
-$(document).ready(function(){
+$(function(){
 
     function moerry(){
         $('#moerry').animate({height: '500px', opacity: '0.4'}, "slow");
@@ -60,7 +62,7 @@ $(document).ready(function(){
     }
 
     function rightPalFunc(){
-        $('#rightPal').animate({height: '300px', opacity: '0.4'}, "slow");
+        $('#rightPal').animate({left: '250px'});
     }
 
   $("button").click(function(){
