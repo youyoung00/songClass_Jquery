@@ -27,11 +27,13 @@
             }
 
             #main {
-                margin: auto;
+                background-image: url("/Users/shinhwanyoo/songClass_jquery/bg.jpeg");
                 border: 1px solid #000;
                 width: 100%;
                 height: 100%;
-                position: relative;
+                position: absolute;
+                top: 0;
+                left: 0;
             }
             #mario_block {
                 position: absolute;
@@ -50,23 +52,177 @@
                 left: 50px;
                 bottom: 10px;
             }
+
+            .set_scores {
+                text-align: center;
+                font-size: 20px;
+            }
+
+            .playing_scores {
+                text-align: center;
+                font-size: 20px;
+                margin-top: 200px;
+            }
+
+            #reusltView {
+                background-color: #D9EEE1;
+                display: inline-block;
+                text-align: center;
+                font-size: 30px;
+                align-items: center;
+            }
+
+            #firstView {
+                background-color: #D9EEE1;
+                display: inline-block;
+                text-align: center;
+                font-size: 20px;
+                align-items: center;
+            }
+
+            .ranking {
+                width: 7%;
+                /* text-align: justify; */
+            }
+
+            /* tr{
+                width: 25%;
+            } */
         </style>
     </head>
-    <body>
+    <body id="main">
+        <div class="container">
+            <!-- <div id="main"> -->
+            <div id="firstView" class="container p-5 my-5">
+                <h1>
+                    마리오</h1>
+                <br>
+                <h3>
+                    개발자 : 유신환</h3>
+                <div><img id="mario" src="/Users/shinhwanyoo/songClass_jquery/man.gif"></div>
+                <!-- <button id="play_game">게임시작</button> -->
+                <br>
+                <div >
+                    <button id="play_game" class="btn btn-success btn-lg">게임시작</button>
+                    <button id="join" class="btn btn-success btn-lg">계정생성</button>
+                </div>
+            </div>
 
-        <div ><img src="/Users/shinhwanyoo/songClass_jquery/bg.jpeg" alt="" id="main">
-            <div id="mario_block"><img id="mario" src="/Users/shinhwanyoo/songClass_jquery/man.gif"></div>
-            <div id="gumba_block"><img src="/Users/shinhwanyoo/songClass_jquery/gb.gif" alt="" id="gumba"></div>
-            <div id="killer_block"><img src="/Users/shinhwanyoo/songClass_jquery/killer.jpeg" alt="" id="killer"></div>
+            <div class="playing_scores">
+                <div class="kill_score" >
+                    공격 점수 :
+                </div>
+                <div class="jump_score" >
+                    방어 점수 :
+                </div>
+                <div class="total_score" >
+                    합계 점수 :
+                </div>
+            </div>
+
+            <div id="scores">
+
+                <div id="reusltView" class="container p-5 my-5 ">
+                    <h1>
+                        Game Over</h1>
+                    <br>
+                    <div class="kill_score" class="set_scores">
+                        공격 점수 :
+                    </div>
+                    <div class="jump_score" class="set_scores">
+                        방어 점수 :
+                    </div>
+                    <div class="total_score" class="set_scores">
+                        합계 점수 :
+                    </div>
+                    <br>
+                    <div class="d-grid">
+                        <button id="replay" class="btn btn-success btn-lg">다시하기</button>
+                    </div>
+                </div>
+            </div>
+            <table class="table">
+                <thead class="table-success">
+
+                    <tr>
+                        <th class="ranking">공격 순위</th>
+                        <th class="ranking"> 닉네임</th>
+                        <th>획득 점수</th>
+
+                        <th class="ranking">방어 순위</th>
+                        <th class="ranking">닉네임</th>
+                        <th>획득 점수</th>
+
+                        <th class="ranking">총점 순위</th>
+                        <th class="ranking">닉네임</th>
+                        <th>획득 점수</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1위</td>
+                        <td>Doe</td>
+                        <td>300점</td>
+
+                        <td>1위</td>
+                        <td>Doe</td>
+                        <td>300점</td>
+
+                        <td>1위</td>
+                        <td>Doe</td>
+                        <td>300점</td>
+                    </tr>
+                    <tr>
+                        <td>2위</td>
+                        <td>Doe</td>
+                        <td>200점</td>
+
+                        <td>2위</td>
+                        <td>Doe</td>
+                        <td>200점</td>
+
+                        <td>2위</td>
+                        <td>Doe</td>
+                        <td>200점</td>
+                    </tr>
+                    <tr>
+                        <td>3위</td>
+                        <td>Doe</td>
+                        <td>100점</td>
+
+                        <td>3위</td>
+                        <td>Doe</td>
+                        <td>100점</td>
+
+                        <td>3위</td>
+                        <td>Doe</td>
+                        <td>100점</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- </table> -->
+
+            <div id="movingIcons">
+                <div id="mario_block"><img id="mario" src="/Users/shinhwanyoo/songClass_jquery/man.gif"></div>
+                <div id="gumba_block"><img src="/Users/shinhwanyoo/songClass_jquery/gb.gif" alt="" id="gumba"></div>
+                <div id="killer_block"><img src="/Users/shinhwanyoo/songClass_jquery/killer.jpeg" alt="" id="killer"></div>
+            </div>
+            <!-- </div> -->
         </div>
-
     </body>
     <script>
 
         var jump = false;
         var killer = false;
 
+        // var killscore = 0;
+        var killscore = 0;
+        var jumpscore = 0;
+        var totalscore = 0;
+
         function gumba_start() {
+
             $('#mario_block').show(100);
             jump = false;
 
@@ -76,10 +232,17 @@
             $('#gumba_block').animate({
                 'left': '0px'
             }, random_speed, function () {
+
+                let alive = $("#mario_block").css("display"); //block 이면 생존 none 이면 사망
+
+                if (alive == "block") {
+                    jumpscore = jumpscore + 100;
+                }
+
                 $('#gumba_block').css('left', "");
                 $('#gumba_block').css('right', "10px");
                 $('#gumba_block').hide();
-                setTimeout(gunba_start, random_speed - 1000);
+                setTimeout(gumba_start, random_speed - 1000);
             })
         }
 
@@ -98,29 +261,40 @@
             })
 
         }
+        function set_score() {
+            $('.kill_score').text(" 공격 점수 : " + killscore);
+            $('.jump_score').text(" 방어 점수 : " + jumpscore);
+            totalscore = killscore + jumpscore;
+            $('.total_score').text("합계 점수 : " + totalscore);
+        }
 
         function mario_down() {
-
             var beat = Number($("#gumba_block").css("left").replace("px", ""));
             if (beat <= 110 && jump == false) {
-                console.log(beat, jump);
-                $('#mario_block').hide(500);
+                $('#mario_block').hide();
+                $('#reusltView').show();
+                $('table').show();
+                $('#main').css("background-image", "none");
+                $('#movingIcons').hide();
+                $('.playing_scores').hide();
                 jump = true;
-
-                // speed, function(){     $('#mario_block').hide();      mario_start();
-                // setTimeout(mario_start,speed); } alert("마리오 사망");
+                // killscore = 0;
+                // jumpscore = 0;
+                // killscore = 0; jumpscore = 0;
             }
         }
 
         function gumba_down() {
+            // killscore = killscore + 150;
             var beat1 = Number($("#gumba_block").css("left").replace("px", ""));
             var beat2 = Number($("#killer_block").css("left").replace("px", ""));
             let random_speed = Math.floor(Math.random() * 1000);
 
-            console.log(beat1 - beat2);
+            // console.log(beat1 - beat2);
 
-            if (beat1 - beat2 < 50) {
-                console.log('굼바다운');
+            if (beat1 - beat2 < 50 && killer == true) {
+                // killscore = killscore + 150;
+                killscore = killscore + 150;
                 killer = false;
                 $("#killer_block").hide();
                 $("#killer_block").css("left", "50px");
@@ -135,12 +309,41 @@
         }
 
         $(function () {
+
+            $('#join').click(function(){
+                
+            })
+
+            killscore = 0;
+            jumpscore = 0;
+            $('table').hide();
+            $('.playing_scores').hide();
+            $('#main').css("background-image", "none");
+            $('#movingIcons').hide();
+            $('#reusltView').hide();
+            $('#scores').hide();
+            $('#movingIcons').hide();
+
+            $('#play_game').click(function () {
+                $('.playing_scores').show();
+                $('#main').css(
+                    "background-image",
+                    `url('/Users/shinhwanyoo/songClass_jquery/bg.jpeg')`
+                );
+                $('table').hide();
+                $('#movingIcons').show();
+                $('#firstView').hide();
+                $('#scores').show();
+                $('#reusltView').hide();
+                $(".set_scores").show();
+            })
             $("body").keydown(function (event) {
                 // console.log(event.keyCode); if(event.keyCode == '37' ){
                 // $('#gb_block').css('left', '-=10px') console.log($('#gb_block').css('left'));
                 // }
                 if (event.keyCode == "32" && jump == false) {
                     jump = true;
+                    // alert(jumpscore);
                     $("#mario_block")
                         .animate({
                             "bottom": "200px"
@@ -151,17 +354,20 @@
                             jump = false;
                         });
                 }
-
                 if (event.keyCode == "13" && killer == false) {
                     killer_start();
                 }
 
             })
 
-            // setTimeout(gumba_start, 1000); setInterval(mario_down, 10);
-            setTimeout(gumba_start, 1000);  
+            $('#replay').click(function () {
+                location.reload();
+            })
+
+            setTimeout(gumba_start, 1000);
             setInterval(mario_down, 10);
             setInterval(gumba_down, 10);
+            setInterval(set_score, 10);
 
         });
     </script>
