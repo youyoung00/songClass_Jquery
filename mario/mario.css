@@ -3,6 +3,18 @@
     width: 100px;
 }
 
+#login_mario {
+    height: 100px;
+}
+
+#join_mario {
+    height: 100px;
+}
+
+#play_mario {
+    height: 100px;
+}
+
 #gumba {
     width: 50px;
 }
@@ -81,6 +93,7 @@
     -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
     box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
 }
+
 
 /* body {
     min-height: 100vh;

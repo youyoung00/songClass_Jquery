@@ -96,14 +96,12 @@
         }
 
         $(function () {
+            
 
-            $('#join').click(function(){
-                $('.input-form').show();
-            })
 
             killscore = 0;
             jumpscore = 0;
-            $('.input-form').hide();
+
             $('table').hide();
             $('.playing_scores').hide();
             $('#main').css("background-image", "none");
@@ -111,6 +109,34 @@
             $('#reusltView').hide();
             $('#scores').hide();
             $('#movingIcons').hide();
+
+            $('.input-form').show();
+            $('#login_container').show();
+            $('#join_container').hide();
+            $('#login_mario').show();
+            $('#join_mario').hide();
+            $('#play_mario').hide();
+
+            
+            $('#join').click(function(){
+                $('.input-form').show();
+                $('#join_mario').show();
+                $('#login_mario').hide();
+                $('#play_mario').hide();
+
+                $('#join_container').show();
+                $('#login_container').hide();
+            })
+
+            $('#login').click(function(){
+                // $('.input-form').show();
+                $('#join_mario').hide();
+                $('#login_mario').show();
+                $('#play_mario').hide();
+
+                $('#join_container').hide();
+                $('#login_container').show();
+            })
 
             $('#play_game').click(function () {
                 $('.playing_scores').show();
@@ -125,6 +151,7 @@
                 $('#reusltView').hide();
                 $(".set_scores").show();
             })
+
             $("body").keydown(function (event) {
                 // console.log(event.keyCode); if(event.keyCode == '37' ){
                 // $('#gb_block').css('left', '-=10px') console.log($('#gb_block').css('left'));
