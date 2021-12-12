@@ -12,8 +12,8 @@
             src="https://code.jquery.com/jquery-3.6.0.js"
             integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
             crossorigin="anonymous"></script>
-            <link rel="stylesheet" type="text/css" href="mario.css">
-            <script type="text/javaScript" src="mario.js"></script>
+        <link rel="stylesheet" type="text/css" href="mario.css">
+        <script type="text/javaScript" src="mario.js"></script>
     </head>
     <body id="main">
         <div class="container">
@@ -133,6 +133,113 @@
                 <div id="killer_block"><img src="killer.jpeg" alt="" id="killer"></div>
             </div>
         </div>
+
+        <div class="container">
+            <div class="input-form-background row">
+                <div class="input-form col-md-12 mx-auto">
+                    <h4 class="mb-3">회원가입</h4>
+                    <form class="validation-form" novalidate="novalidate">
+
+                        <div class="row">
+                            <div class='col-md-6 mb-3'>
+                                <label for="name">이름</label>
+                                <input type="text" class="form-control" id="name" required="required">
+                                <div class="invalid-feedback">
+                                    이름을 입력해주세요.
+                                </div>
+                            </div>
+                            <div class='col-md-6 mb-3'>
+                                <label for="name">별명</label>
+                                <input type="text" class="form-control" id="nickname" required="required">
+                                <div class="invalid-feedback">
+                                    별명을 입력해주세요
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class='mb-3'>
+                            <label for="email">이메일</label>
+                            <input
+                                type="email"
+                                class="form-control"
+                                id="email"
+                                placeholder="you@example.com"
+                                required="required">
+                            <div class="invalid-feedback">
+                                이메일을 입력해주세요
+                            </div>
+                        </div>
+
+                        <div class='mb-3'>
+                            <label for="address">주소</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="address"
+                                placeholder="서울특별시 강남구"
+                                required="required">
+                            <div class="invalid-feedback">
+                                주소를 입력해주세요.
+                            </div>
+                        </div>
+
+                        <div class='mb-3'>
+                            <label for="address2">상세주소
+                                <span class="text-muted">&nbsp;(필수 아님)</span></label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="address"
+                                placeholder="상세주소를 입력해주세요"
+                                required="required">
+                        </div>
+
+                        <div class="row">
+                            <div class='col-md-8 mb-3'>
+                                <label for="name">가입 경로</label>
+                                <select class="form-select" id="root">
+                                    <option value=""></option>
+                                    <option value="">검색</option>
+                                    <option value="">카페</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    가입 경로를 선택해주세요
+                                </div>
+                            </div>
+                            <div class='col-md-4 mb-3'>
+                                <label for="code">추천인 코드</label>
+                                <input type="text" class="form-control" id="code" required="required">
+                                <div class="invalid-feedback">
+                                    추천인 코드를 입력해주세요.
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="mb-4">
+                        <div class="form-check">
+                            <input
+                                type="checkbox"
+                                class="form-check-input"
+                                id="aggrement"
+                                name="option1"
+                                value="sumething">
+                            <label class="form-check-label" for="aggrement">
+                                개인정보 수집 및 이용에 동의합니다.
+                            </label>
+                        </div>
+
+                        <div class="mb-4"></div>
+                        <div class="d-grid">
+                            <button class="btn btn-success " type="submit">가입 완료</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <footer class="my-3 text-center text-small"> 
+                <p class="mb-1">&copy; 2021 SH</p>
+            </footer>
+        </div>
+
     </body>
 
 </html>

@@ -97,14 +97,13 @@
 
         $(function () {
 
-            
-
             $('#join').click(function(){
-                
+                $('.input-form').show();
             })
 
             killscore = 0;
             jumpscore = 0;
+            $('.input-form').hide();
             $('table').hide();
             $('.playing_scores').hide();
             $('#main').css("background-image", "none");
