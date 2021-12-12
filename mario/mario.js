@@ -96,8 +96,6 @@
         }
 
         $(function () {
-            
-
 
             killscore = 0;
             jumpscore = 0;
@@ -117,7 +115,12 @@
             $('#join_mario').hide();
             $('#play_mario').hide();
 
-            
+            $("#login_btn").click(function(){
+                $("#play_mario").show();
+                $("#join_mario").hide();
+                $("#login_mario").hide();
+            });
+
             $('#join').click(function(){
                 $('.input-form').show();
                 $('#join_mario').show();
@@ -144,6 +147,8 @@
                     "background-image",
                     `url('bg.jpeg')`
                 );
+                $('.input-form').hide();
+                $('#login_container').hide();
                 $('table').hide();
                 $('#movingIcons').show();
                 $('#firstView').hide();
@@ -151,6 +156,7 @@
                 $('#reusltView').hide();
                 $(".set_scores").show();
             })
+
 
             $("body").keydown(function (event) {
                 // console.log(event.keyCode); if(event.keyCode == '37' ){
