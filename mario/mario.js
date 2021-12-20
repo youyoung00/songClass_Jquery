@@ -108,6 +108,9 @@
             $('#scores').hide();
             $('#movingIcons').hide();
 
+            // 게임시작 버튼 비활성화
+            $('#play_game').hide();
+
             $('.input-form').show();
             $('#login_container').show();
             $('#join_container').hide();
@@ -191,4 +194,7 @@
             setInterval(set_score, 10);
 
         });
+
+
+        
     
