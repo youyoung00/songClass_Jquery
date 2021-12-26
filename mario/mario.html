@@ -68,80 +68,81 @@
                     <h1>
                         Game Over</h1>
                     <br>
-                    <div class="set_scores">
+                    <div class="set_scores" id="attack_score">
                         공격 점수 :
                     </div>
-                    <div class="set_scores">
+                    <div class="set_scores" id="defense_score">
                         방어 점수 :
                     </div>
-                    <div class="set_scores">
+                    <div class="set_scores" id="total_score">
                         합계 점수 :
                     </div>
                     <br>
-                    <div class="d-grid">
-                        <button id="replay" class="btn btn-success btn-lg">다시하기</button>
-                    </div>
+                    <div class="row" >
+                        <button id="replay" class="col-sm-5 btn btn-success btn-lg">다시하기</button>
+                        <div class="col-sm-2"></div>
+                        <button id="result_score_upload" class="col-sm-5 btn btn-success btn-lg">결과 점수 등록</button>
+                    </div>                    
                 </div>
             </div>
             <table class="table">
                 <thead class="table-success">
 
                     <tr>
-                        <th class="ranking">공격 순위</th>
-                        <th class="ranking">
-                            닉네임</th>
+                        <th >공격 순위</th>
+                        <th >닉네임</th>
                         <th>획득 점수</th>
 
-                        <th class="ranking">방어 순위</th>
-                        <th class="ranking">닉네임</th>
+                        <th>방어 순위</th>
+                        <th >닉네임</th>
                         <th>획득 점수</th>
 
-                        <th class="ranking">총점 순위</th>
-                        <th class="ranking">닉네임</th>
+                        <th >총점 순위</th>
+                        <th >닉네임</th>
                         <th>획득 점수</th>
                     </tr>
 
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>1위</td>
-                        <td>Doe</td>
-                        <td>300점</td>
+                <tbody class="score_table">
+                    <!-- <tr>
+                        <td>1</td>
+                        <td class="kill_name"></td>
+                        <td class="kill_score"></td>
 
-                        <td>1위</td>
-                        <td>Doe</td>
-                        <td>300점</td>
+                        <td>1</td>
+                        <td class="jump_name"></td>
+                        <td class="jump_score"></td>
 
-                        <td>1위</td>
-                        <td>Doe</td>
-                        <td>300점</td>
-                    </tr>
-                    <tr>
-                        <td>2위</td>
-                        <td>Doe</td>
-                        <td>200점</td>
+                        <td>1</td>
+                        <td class="total_name"></td>
+                        <td class="total_score"></td>
+                    </tr> -->
+                    <!-- <tr>
+                        <td>2</td>
+                        <td id="kill_name2"></td>
+                        <td id="kill_score2"></td>
 
-                        <td>2위</td>
-                        <td>Doe</td>
-                        <td>200점</td>
+                        <td>2</td>
+                        <td id="jump_name2"></td>
+                        <td id="jump_score2"></td>
 
-                        <td>2위</td>
-                        <td>Doe</td>
-                        <td>200점</td>
+                        <td >2</td>
+                        <td id="total_name2"></td>
+                        <td id="total_score2"></td>
                     </tr>
                     <tr>
                         <td>3위</td>
-                        <td>Doe</td>
-                        <td>100점</td>
+                        <td id="kill_name3"></td>
+                        <td id="kill_score3"></td>
 
                         <td>3위</td>
-                        <td>Doe</td>
-                        <td>100점</td>
+                        <td id="jump_name3"></td>
+                        <td id="jump_score3"></td>
 
                         <td>3위</td>
-                        <td>Doe</td>
-                        <td>100점</td>
-                    </tr>
+                        <td id="total_name3"></td>
+                        <td id="total_score3"></td>
+                    </tr> -->
                 </tbody>
             </table>
 
@@ -182,7 +183,7 @@
                             <hr class="mb-4">
 
                             <div class="d-grid">
-                                <button class="btn btn-success" id="login_btn" type="submit">로그인</button>
+                                <button class="btn btn-success" id="login_btn" type="button">로그인</button>
                             </div>
                         </form>
                     </div>
