@@ -1,7 +1,6 @@
 var jump = false;
 var killer = false;
 
-// var killscore = 0;
 var killscore = 0;
 var jumpscore = 0;
 var totalscore = 0;
@@ -12,22 +11,7 @@ var final_jumpscores = [];
 var final_totalscores = [];
 var final_nicnames = [];
 
-// var score_List = [];
 var score_database = [];
-
-var addhtml = `<tr>
-<td class="ranking"></td>
-<td class="nicname"></td>
-<td id="final_killscore"></td>
-
-<td class="ranking"></td>
-<td class="nicname"></td>
-<td id="final_jumpscore"></td>
-
-<td class="ranking"></td>
-<td class="nicname"></td>
-<td id="final_totalscore"></td>
-</tr>`;
 
 function gumba_start() {
 
@@ -53,9 +37,6 @@ function gumba_start() {
         setTimeout(gumba_start, random_speed - 1000);
     })
 }
-
-// function mario_start() {     $('#mario_block').show();
-// $('#mario_block').css('bottom', '10px'); }
 
 function killer_start() {
     $("#killer_block").show(30);
@@ -85,8 +66,6 @@ function mario_down() {
         $('#main').css("background-image", "none");
         $('#movingIcons').hide();
         $('.playing_scores').hide();
-        // $('.table-success').show(); $("#gumba_block").stop();
-        // $("#gumba_block").css("left", ""); $("#gumba_block").css("right", "10px");
 
         jump = true;
         $('#attack_score').text(" 공격 점수 : " + killscore);
@@ -97,15 +76,12 @@ function mario_down() {
 }
 
 function gumba_down() {
-    // killscore = killscore + 150;
     var beat1 = Number($("#gumba_block").css("left").replace("px", ""));
     var beat2 = Number($("#killer_block").css("left").replace("px", ""));
     let random_speed = Math.floor(Math.random() * 1000);
 
-    // console.log(beat1 - beat2);
-
     if (beat1 - beat2 < 50 && killer == true) {
-        // killscore = killscore + 150;
+
         killscore = killscore + 150;
         killer = false;
         $("#killer_block").hide();
@@ -151,9 +127,9 @@ function play_game_open() {
     })
 }
 
-function input_nicname(){
+function input_nicname() {
     nicname = prompt('등록할 닉네임 세글자를 입력해주세요');
-    if(nicname.length > 3){
+    if (nicname.length > 3) {
         alert('닉네임은 세글자까지 입력 가능합니다.')
         input_nicname();
     } else {
@@ -170,7 +146,7 @@ function score_upload_db() {
 
         var upload;
         var nicname = '';
-        // ranking = ranking + 1;
+
         let score_List = [];
         let sort_score = [];
         var obj = {};
@@ -178,7 +154,7 @@ function score_upload_db() {
         nicname = input_nicname();
 
         score_List.push(obj = {
-            // 'ranking': ranking,
+
             'nicname': nicname,
             'final_totalscore': totalscore,
             'final_killscore': killscore,
@@ -187,19 +163,14 @@ function score_upload_db() {
 
         score_database.push(score_List[0]);
 
-        // console.log(score_database);
-
         $('.score_table').empty();
         $('.table-success').show();
 
         sort_score = score_database.sort(function (a, b) {
             return b.final_totalscore - a.final_totalscore;
         });
-        // console.log(sort_score);
 
         for (let i = 0; i < score_database.length; i++) {
-
-            // score_database.push(score_List[0]);
 
             $('.score_table').append(
                 `<tr>
@@ -215,13 +186,7 @@ function score_upload_db() {
             $(`#final_totalscore${i}`).text(score_database[i]['final_totalscore']);
             $(`#final_killscore${i}`).text(score_database[i]['final_killscore']);
             $(`#final_jumpscore${i}`).text(score_database[i]['final_jumpscore']);
-            // console.log(score_database[i]['nicname']);
         }
-
-        // $('#final_totalscore').text(final_totalscores);
-        // $('#final_killscore').text(final_killscores);
-        // $('#final_jumpscore').text(final_jumpscores); score_List = [];
-        // console.log(score_database); console.log(score_List);
 
     } else {
         return;
@@ -257,19 +222,16 @@ $(function () {
     $('#login').click(function () {
         $('#join_mario').hide();
         $('#login_mario').show();
-        // $('#play_mario').hide();
 
         $('#join_container').hide();
         $('#login_container').show();
     })
 
     $("body").keydown(function (event) {
-        // console.log(event.keyCode); if(event.keyCode == '37' ){
-        // $('#gb_block').css('left', '-=10px') console.log($('#gb_block').css('left'));
-        // }
+
         if (event.keyCode == "32" && jump == false) {
             jump = true;
-            // alert(jumpscore);
+
             $("#mario_block")
                 .animate({
                     "bottom": "200px"
@@ -306,7 +268,6 @@ $(function () {
 
     $('#result_score_upload').click(function () {
         score_upload_db();
-        // console.log(score_upload_db());
     });
 
     setTimeout(gumba_start, 1000);
