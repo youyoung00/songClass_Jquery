@@ -7,12 +7,13 @@ var jumpscore = 0;
 var totalscore = 0;
 var ranking = 0;
 
-var final_killscore = [];
-var final_jumpscore = [];
-var final_totalscore = [];
+var final_killscores = [];
+var final_jumpscores = [];
+var final_totalscores = [];
+var final_nicnames = [];
 
-var score_List = [];
-var score_database;
+// var score_List = [];
+var score_database = [];
 
 var addhtml = `<tr>
 <td class="ranking"></td>
@@ -84,6 +85,9 @@ function mario_down() {
         $('#main').css("background-image", "none");
         $('#movingIcons').hide();
         $('.playing_scores').hide();
+        // $('.table-success').show(); $("#gumba_block").stop();
+        // $("#gumba_block").css("left", ""); $("#gumba_block").css("right", "10px");
+
         jump = true;
         $('#attack_score').text(" 공격 점수 : " + killscore);
         $('#defense_score').text(" 방어 점수 : " + jumpscore);
@@ -127,6 +131,7 @@ function firstView() {
     $('#play_mario').hide();
     $("#join_mario").hide();
     $('.table-success').hide();
+
 }
 
 function play_game_open() {
@@ -146,19 +151,80 @@ function play_game_open() {
     })
 }
 
+function score_upload_db() {
+
+    upload = confirm('점수를 등록하시겠습니까?');
+
+    if (upload) {
+
+        var upload;
+        var nicname = '';
+        // ranking = ranking + 1;
+        let score_List = [];
+        let sort_score = [];
+        var obj = {};
+
+        nicname = prompt('등록할 닉네임 세글자를 입력해주세요');
+
+        score_List.push(obj = {
+            // 'ranking': ranking,
+            'nicname': nicname,
+            'final_totalscore': totalscore,
+            'final_killscore': killscore,
+            'final_jumpscore': jumpscore
+        });
+
+        score_database.push(score_List[0]);
+
+        console.log(score_database);
+
+        $('.score_table').empty();
+        $('.table-success').show();
+
+        sort_score = score_database.sort(function (a, b) {
+            return b.final_totalscore - a.final_totalscore;
+        });
+        console.log(sort_score);
+
+        for (let i = 0; i < score_database.length; i++) {
+
+            // score_database.push(score_List[0]);
+
+            $('.score_table').append(
+                `<tr>
+<td class="ranking${i}"></td>
+<td class="nicname${i}"></td>
+<td id="final_killscore${i}"></td>
+<td id="final_jumpscore${i}"></td>
+<td id="final_totalscore${i}"></td>
+</tr>`
+            );
+            $(`.nicname${i}`).text(score_database[i]['nicname']);
+            $(`.ranking${i}`).text((i + 1) + '위');
+            $(`#final_totalscore${i}`).text(score_database[i]['final_totalscore']);
+            $(`#final_killscore${i}`).text(score_database[i]['final_killscore']);
+            $(`#final_jumpscore${i}`).text(score_database[i]['final_jumpscore']);
+            // console.log(score_database[i]['nicname']);
+        }
+
+        // $('#final_totalscore').text(final_totalscores);
+        // $('#final_killscore').text(final_killscores);
+        // $('#final_jumpscore').text(final_jumpscores); score_List = [];
+        // console.log(score_database); console.log(score_List);
+
+    } else {
+        return;
+    }
+
+    return score_database;
+}
+
 $(function () {
 
     firstView();
 
     killscore = 0;
     jumpscore = 0;
-
-    // $('table').hide(); $('.playing_scores').hide();
-    // $('#main').css("background-image", "none"); $('#movingIcons').hide();
-    // $('#reusltView').hide(); $('#scores').hide(); $('#movingIcons').hide();  게임시작
-    // 버튼 비활성화 $('#play_game').hide(); $('.input-form').show();
-    // $('#login_container').show(); $('#join_container').hide();
-    // $('#login_mario').show(); $('#join_mario').hide(); $('#play_mario').hide();
 
     $("#login_btn").click(function () {
         $("#play_mario").show();
@@ -228,67 +294,8 @@ $(function () {
     });
 
     $('#result_score_upload').click(function () {
-
-        upload = confirm('점수를 등록하시겠습니까?');
-
-        if (upload) {
-
-            $('.score_table').append(addhtml);
-
-            var upload;
-            var nicname = '';
-            ranking = ranking + 1;
-
-            nicname = prompt('등록할 닉네임 세글자를 입력해주세요');
-            final_killscore.push(killscore);
-            final_jumpscore.push(jumpscore);
-            final_totalscore.push(totalscore);
-
-            let obj = {
-                'nicname': nicname,
-                'final_totalscore': final_totalscore,
-                'final_killscore': final_killscore,
-                'final_jumpscore': final_jumpscore
-            };
-
-            // $('.score_table').html(
-            //     `            <tr>
-            //     <td class="ranking"></td>
-            //     <td class="nicname"></td>
-            //     <td id="final_killscore"></td>
-
-            //     <td class="ranking"></td>
-            //     <td class="nicname"></td>
-            //     <td id="final_jumpscore"></td>
-
-            //     <td class="ranking"></td>
-            //     <td class="nicname"></td>
-            //     <td id="final_totalscore"></td>
-            // </tr>`
-            // );
-
-            $('.ranking').text(ranking + '위');
-            $('.nicname').text(nicname);
-            $('#final_totalscore').text(final_totalscore);
-
-            // $('#ranking').text(ranking + '위');
-            $('#final_killscore').text(final_killscore);
-            // $('#nicname').text(nicname); $('#ranking').text(ranking + '위');
-            $('#final_jumpscore').text(final_jumpscore);
-            // $('#nicname').text(nicname);
-
-            score_List.push(obj);
-            score_database = score_List[0];
-            score_List = [];
-
-            console.log(score_database);
-            console.log(score_List);
-
-        } else {
-            return;
-        }
-
-        return score_database;
+        score_upload_db();
+        // console.log(score_upload_db());
     });
 
     setTimeout(gumba_start, 1000);
