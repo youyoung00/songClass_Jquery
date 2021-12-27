@@ -151,6 +151,17 @@ function play_game_open() {
     })
 }
 
+function input_nicname(){
+    nicname = prompt('등록할 닉네임 세글자를 입력해주세요');
+    if(nicname.length > 3){
+        alert('닉네임은 세글자까지 입력 가능합니다.')
+        input_nicname();
+    } else {
+        return nicname;
+    }
+    return nicname;
+}
+
 function score_upload_db() {
 
     upload = confirm('점수를 등록하시겠습니까?');
@@ -164,7 +175,7 @@ function score_upload_db() {
         let sort_score = [];
         var obj = {};
 
-        nicname = prompt('등록할 닉네임 세글자를 입력해주세요');
+        nicname = input_nicname();
 
         score_List.push(obj = {
             // 'ranking': ranking,
@@ -176,7 +187,7 @@ function score_upload_db() {
 
         score_database.push(score_List[0]);
 
-        console.log(score_database);
+        // console.log(score_database);
 
         $('.score_table').empty();
         $('.table-success').show();
@@ -184,7 +195,7 @@ function score_upload_db() {
         sort_score = score_database.sort(function (a, b) {
             return b.final_totalscore - a.final_totalscore;
         });
-        console.log(sort_score);
+        // console.log(sort_score);
 
         for (let i = 0; i < score_database.length; i++) {
 
