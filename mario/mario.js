@@ -122,10 +122,11 @@ function firstView() {
     $('#join_container').hide();
     $('#reusltView').hide();
     $('.playing_scores').hide();
-    $('table').hide();
+    $('.table').hide();
     $('#scores').hide();
     $('#play_mario').hide();
     $("#join_mario").hide();
+    $('.table-success').hide();
 }
 
 function play_game_open() {
@@ -135,7 +136,8 @@ function play_game_open() {
         $('#main').css("background-image", `url('bg.jpeg')`);
         $('.input-form').hide();
         $('#login_container').hide();
-        $('table').hide();
+        $('.table').hide();
+
         $('#movingIcons').show();
         $('#firstView').hide();
         $('#scores').show();
@@ -231,7 +233,7 @@ $(function () {
 
         if (upload) {
 
-            $('.score_table').html(addhtml);
+            $('.score_table').append(addhtml);
 
             var upload;
             var nicname = '';
